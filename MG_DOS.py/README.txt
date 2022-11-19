@@ -2,6 +2,7 @@ Before you use this python file, you will need to install the following modules:
 "unix"
 "SQLite"
 "datetime"
+"psutil"
 
 
 This can be done using this command in the command terminal, or "CMD":

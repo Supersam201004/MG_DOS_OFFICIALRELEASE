@@ -3,6 +3,8 @@ import time
 import random as RANDOM
 from datetime import datetime
 import os
+import platform
+
 
 textfile1_path = 'textfile1.txt'
 
@@ -21,6 +23,38 @@ lastnameretrieve = open('sqlitefiles\\user_last_name.txt', 'r')
 ageset = open('sqlitefiles\\user_age.txt', 'w')
 nameset = open('sqlitefiles\\user_name.txt', 'w')
 lastnameset = open('sqlitefiles\\user_last_name.txt', 'w')
+
+gamename = 'MG_OS'
+gamever = 'V1.3'
+
+
+def servrepairmenu():
+    print('===============================SERVICE/REPAIRMENU===============================')
+    print("There's Not Much Going On Here, Sorry!")
+    time.sleep(2)
+    bootupmenu()
+
+
+def servrepairmode():
+    print('STARTING IN SERVICE/REPAIR MODE...')
+    time.sleep(2)
+    print('Computer Information:')
+    print('Bits:', platform.machine())
+    print('Platform:', platform.platform())
+    print('System:', platform.system())
+    print('Processor:', platform.processor())
+    print('Name:', platform.node())
+    print('OS Information:')
+    print('Name:', gamename)
+    print('Version:', gamever)
+    time.sleep(2)
+    servrepairmenu()
+    
+
+
+
+
+
 
 def textfile1write():
     textfile1contentwrite = input('Write Your Text, Then Press Enter.')
@@ -260,6 +294,8 @@ def file_flipacoin():
 
     
 def bootupmenu():
+    print('MG Robotics 2022, all rights reserved.')
+    print('Type "help" for a list of commands.')
     bootupmenuchoose = input('MG_DOS>>>')
     if bootupmenuchoose == 'help':
         help()
@@ -276,9 +312,17 @@ def bootup():
     time.sleep(3)
     print('All systems online.')
     time.sleep(1)
-    print('MG Robotics 2022, all rights reserved.')
-    print('Type "help" for a list of commands.')
-    bootupmenu()
+    print('Bootup In: 1. Normal or 2. Service/Repair?')
+    bootupmodechoose = input('>>> ')
+    if bootupmodechoose == '1':
+        time.sleep(1)
+        bootupmenu()
+    if bootupmodechoose == '2':
+        servrepairmode()
+    else:
+        print('COMMAND NOT RECOGNIZED')
+    bootup()
+    
 
 
 
